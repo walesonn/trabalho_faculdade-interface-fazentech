@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fazentech">
+    <!-- link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Fazentech</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="row">
+        <nav class="items-around-center">
+            <div id="logo">
+                <h1>FazenTECH</h1>
+            </div>
+            <a href="#"><i class="fa fa-bars" aria-hidden="true" id="menu"></i></a>
+            <ul id="menu_links">
+                <li><a href="index.html" class="btnLogin">Login</a></li>
+                <li><a href="index.html" class="btnCad">Registre-se</a></li>
+            </ul>
+        </nav>
+    </header>        
+    <!-- main -->
+    <main>
+        <div class="row flex-between">
+            <nav class="nav-menu">
+                <ul class="list-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">Produção</a></li>
+                    <li><a href="">Funcionários</a></li>
+                    <li><a href="">Estoque</a></li>
+                    <li><a href="">Animais</a></li>
+                </ul>
+            </nav>
+
+            <div class="container flex p-1">
+                <div class="row flex-around" id="bg-img">
+                    <div class="col-sm-6 p-1">
+                        <div class="container p-1 border-green bg-white" style="height: 400px;">
+                            <h2>Produção Leite</h2>
+                            <!-- Grafico produção leite -->
+                            <div id="columnchart_values" style="width: 100%; height: auto;" class="items-center"></div>
+                        </div>
+                        <div class="container p-1 border-green bg-white" style="height: 400px;" class="flex-center">
+                            <h2 class="text-center">Salário funcionários</h2>
+                            <!-- Tabela salário funcionários -->
+                           <div id="table_div" class="flex-center"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-1">
+                        <div class="container p-1 border-green bg-white" style="height: 400px;">
+                            <h2>Animais fazenda</h2>
+                              <!-- Grafico animais -->
+                            <div id="piechart_3d" style="width: 100%; height: auto; margin-top: 80px;"></div>
+                        </div>
+                        <div class="container p-1 border-green bg-white" style="height: 400px;">
+                            <h2>Tabela Estoque</h2>
+                            <div id="table_estoque" style="width: 100%; height: auto; margin-top: 80px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#menu").click(function(){
+                $(".nav-menu").toggle();
+            });
+        });
+
+        // grafico google charts produção leite
+        google.charts.load("current", {packages:['corechart']});
+        google.charts.setOnLoadCallback(drawChart1);
+        function drawChart1() {
+          var data = google.visualization.arrayToDataTable([
+            ["Dia semana", "Litros", { role: "style" } ],
+            ["Segunda",1230, "aqua"],
+            ["terça", 1000, "red"],
+            ["Quarta", 1240, "purple"],
+            ["Quinta", 2452.1, "gold"],
+            ["Sexta", 3028.09, "color: #e5e4e2"],
+            ["Sábado",5001.5,"color:green"]
+          ]);
+    
+          var view = new google.visualization.DataView(data);
+          view.setColumns([0, 1,
+                           { calc: "stringify",
+                             sourceColumn: 1,
+                             type: "string",
+                             role: "annotation" },
+                           2]);
+    
+          var options = {
+            title: "Produção Leite",
+            width: 280,
+            height: 350,
+            bar: {groupWidth: "95%"},
+            legend: { position: "none" },
+          };
+          var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+          chart.draw(view, options);
+      }
+      
+
+        // Grafico de pizzas
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart2);
+        function drawChart2() {
+            var data = google.visualization.arrayToDataTable([
+            ['Task', 'Quantidade'],
+            ['Vacas',     15],
+            ['Bois',      2],
+            ['Galinhas',  2],
+            ['Carneiros', 2],
+            ['Cavalos',    4]
+            ]);
+
+            var options = {
+            title: 'Animais da fazenda',
+            is3D: true,
+            };
+
+            var chart2 = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart2.draw(data, options);
+        }
+      
+        // Tabela salário funcionários
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Nome');
+            data.addColumn('number', 'Salário');
+            data.addColumn('boolean', 'Tempo integral');
+            data.addRows([
+            ['Mike',  {v: 10000, f: 'R$5,000'}, true],
+            ['Jim',   {v:8000,   f: 'R$1,000'},  false],
+            ['Alice', {v: 12500, f: 'R$2,500'}, true],
+            ['Bob',   {v: 7000,  f: 'R$2,500'},  true]
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        }
+     
+        // Estoque table
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable2);
+
+        function drawTable2() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Nome');
+            data.addColumn('number', 'Preço');
+            data.addColumn('string', 'Qtd');
+            data.addRows([
+            ['Foice',  {v: 10000, f: 'R$35,00'}, '100 un'],
+            ['Enchada',   {v:8000,   f: 'R$32,00'},  '200 un'],
+            ['Adulbo', {v: 12500, f: 'R$60,00'}, '54.000 kg'],
+            ['Milho',   {v: 7000,  f: 'R$2,50'},  '1000.00 kg']
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_estoque'));
+
+            table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        }
+     
+      </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fazentech">
+    <!-- link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Fazentech</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="row">
+        <nav class="items-around-center">
+            <div id="logo">
+                <h1>FazenTECH</h1>
+            </div>
+            <a href="#"><i class="fa fa-bars" aria-hidden="true" id="menu"></i></a>
+            <ul id="menu_links">
+                <li><a href="home.html">Painel</a></li>
+                <li><a href="#" class="btnLogin">Login</a></li>
+                <li><a href="#" class="btnCad">Registre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Content -->
+    <main>
+        <section>
+            <div class="row flex-center">
+                <div class="container p-1 flex-center">
+                    <!-- formulario login -->
+                    <form class="form" id="form-login">
+                        <fieldset>
+                            <legend><h1>Login</h1></legend>
+
+                            <label for="cpf">Email:</label>
+                            <input type="text" name="email" id="loginEmail" placeholder="Email">
+                            
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="senha" id="LoginSenha" placeholder="Senha">
+
+                            <input type="submit" value="Entrar">
+
+                            <div class="row flex-between p-1">
+                                <span><a href="#" id="btnRecSenha">Esqueceu a senha?</a></span>
+                                <span><a href="#" class="btnCad">Cadastre-se</a></span>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                    <!-- Form cadastro -->
+                    <form class="form" id="form-cadastro">
+                        <fieldset>
+                            <legend><h1>Cadastre-se</h1></legend>
+
+                            <label for="nome">Nome:</label>
+                            <input type="text" name="cadnome" id="cadnome" placeholder="Nome">
+
+                            <label for="cpf">Email:</label>
+                            <input type="text" name="cademail" id="cademail" placeholder="Email">
+                            
+                            <label for="cpf">Cpf:</label>
+                            <input type="text" name="cadcpf" id="cadcpf" placeholder="Cpf">
+
+                            <label for="senha">Senha:</label>
+                            <input type="password" name="cadsenha" id="cadsenha" placeholder="Senha">
+
+                            <label for="confirmSenha">Confirme a senha:</label>
+                            <input type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirme a senha">
+
+                            <input type="submit" value="Entrar">
+
+                            <div class="row flex-between p-1">
+                                <span><a href="#" class="btnLogin">Login</a></span>
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                     <!-- Form recuperação de senha -->
+                     <form class="form" id="form-recSenha">
+                        <fieldset>
+                            <legend><h1>Recuperar senha</h1></legend>
+
+                            <label for="cpf">Email:</label>
+                            <input type="text" name="recoveryemail" id="recoveryemail" placeholder="Email">
+
+                            <input type="submit" value="Enviar">
+
+                            <div class="row flex-between p-1">
+                                <span><a href="#" class="btnLogin">Login</a></span>
+                                <span><a href="#" class="btnCad">Cadastre-se</a></span>
+                            </div>
+
+                        </fieldset>
+                    </form>
+    
+                </div>
+            </div>    
+        </section>
+    </main>
+
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#menu").click(function(){
+                $("#menu_links").toggle();
+            });
+            $("#btnRecSenha").click(function(){
+                $("#form-login").hide();
+                $("#form-cadastro").hide();
+                $("#form-recSenha").show();
+            });
+            $(".btnCad").click(function(){
+                $("#form-login").hide();
+                $("#form-recSenha").hide();
+                $("#form-cadastro").show();
+            });
+            $(".btnLogin").click(function(){
+                $("#form-cadastro").hide();
+                $("#form-recSenha").hide();
+                $("#form-login").show();
+            });
+            
+        });
+    </script>
+</body>
+</html>
