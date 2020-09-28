@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fazentech">
+    <!-- link -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Fazentech</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="row">
+        <nav class="items-around-center">
+            <div id="logo">
+                <h1>FazenTECH</h1>
+            </div>
+            <a href="#"><i class="fa fa-bars" aria-hidden="true" id="menu"></i></a>
+            <ul id="menu_links">
+                <li><a href="painel.html">Painel</a></li>
+                <li><a href="index.html" class="btnLogin">Login</a></li>
+                <li><a href="index.html" class="btnCad">Registre-se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="row flex-between">
+            <nav class="nav-menu">
+                <ul class="list-menu">
+                    <li><a href="loja.html">Loja</a></li>
+                    <li><a href="producao.html">Produção</a></li>
+                    <li><a href="funcionarios.html">Funcionários</a></li>
+                    <li><a href="encomendas.html">Encomenda</a></li>
+                    <li><a href="animais.html">Animais</a></li>
+                    <li><a href="https://github.com/walesonn/trabalho_faculdade-interface-fazentech" target="_blank"><i class="fa fa-github" aria-hidden="true" id="git"></i></a></li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                <div class="row flex-center">
+                    <div class="container p-1 flex-center">
+                        <h1>Tabela Funcionários</h1>
+                    </div>
+                </div>
+
+                <div class="row flex-center">
+                    <div class="container p-1">
+
+                        <div class="row flex-between" style="align-items:center">
+                            <div>
+                                <!-- show -->
+                                <label for="mostrar">Mostrar</label>
+                                <select name="mostrar" id="mostrar">
+                                    <option value="5">5</option>
+                                    <option value="5">10</option>
+                                    <option value="5">15</option>
+                                    <option value="5">25</option>
+                                    <option value="5">50</option>
+                                    <option value="5">100</option>
+                                    <option value="5">250</option>
+                                </select>
+                            </div>
+                            <!-- search -->
+                            <div class="inline-flex">
+                                <input type="search" name="buscar" id="buscar" placeholder="Buscar por ?">
+                                <input type="submit" value="Buscar">
+                            </div>
+
+                            <div id="btnCrud">
+                                <a href="" class="btn"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            </div>
+
+                        </div>
+                        <!-- tabela produção -->
+                        <div id="tabela_func"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#menu").click(function(){
+                $(".nav-menu").toggle();
+            });
+        });
+        // table funcionario script 
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTable);
+  
+        function drawTable() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('number', 'ID');
+          data.addColumn('string', 'Nome');
+          data.addColumn('string', 'Cpf');
+          data.addColumn('string', 'Setor');
+          data.addColumn('string', 'salário')
+          data.addRows([
+            [1,  "Mike", "133.123.321-00", "Plantio",   "R$5,000"],
+            [2,   "Jim", "101.777.212-00" ,"Animais" ,  "R$1,000"],
+            [3,  "Alice", "000.111.222.33", "Produção" ,"R$2,500"],
+            [4,  "Bob", "102.045.045-45" ,"Plantio",    "R$2,500"]
+          ]);
+            
+          var table = new google.visualization.Table(document.getElementById('tabela_func'));
+  
+          table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
+        }
+      </script>
+</body>
+</html>

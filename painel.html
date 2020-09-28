@@ -29,11 +29,12 @@
         <div class="row flex-between">
             <nav class="nav-menu">
                 <ul class="list-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="">Produção</a></li>
-                    <li><a href="">Funcionários</a></li>
-                    <li><a href="">Estoque</a></li>
-                    <li><a href="">Animais</a></li>
+                    <li><a href="loja.html">Loja</a></li>
+                    <li><a href="producao.html">Produção</a></li>
+                    <li><a href="funcionarios.html">Funcionários</a></li>
+                    <li><a href="encomendas.html">Encomendas</a></li>
+                    <li><a href="animais.html">Animais</a></li>
+                    <li><a href="https://github.com/walesonn/trabalho_faculdade-interface-fazentech" target="_blank"><i class="fa fa-github" aria-hidden="true" id="git"></i></a></li>
                 </ul>
             </nav>
 
@@ -162,13 +163,13 @@
         function drawTable2() {
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Nome');
-            data.addColumn('number', 'Preço');
+            data.addColumn('number', 'Preço unit/kg');
             data.addColumn('string', 'Qtd');
             data.addRows([
             ['Foice',  {v: 10000, f: 'R$35,00'}, '100 un'],
             ['Enchada',   {v:8000,   f: 'R$32,00'},  '200 un'],
             ['Adulbo', {v: 12500, f: 'R$60,00'}, '54.000 kg'],
-            ['Milho',   {v: 7000,  f: 'R$2,50'},  '1000.00 kg']
+            ['Milho',   {v: 7000,  f: 'R$1,20'},  '1000.00 kg']
             ]);
 
             var table = new google.visualization.Table(document.getElementById('table_estoque'));
