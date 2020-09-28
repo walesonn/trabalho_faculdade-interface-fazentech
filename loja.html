@@ -40,21 +40,143 @@
             </div>
         </div>
         <div class="row flex-center">
-            <div class="container border-green flex-between">
-                <menu class="departamentos border-green p-1">
-                    <h3>Departamentos</h3>
-                    <ul>
-                        <li><a href="">Grãos</a></li>
-                        <li><a href="">Ferramentas</a></li>
-                        <li><a href="">Leite</a></li>
-                        <li><a href="">Verduras</a></li>
+            <div class="container flex-between">
+                <menu class="departamentos border-green p-1" style="float:left;">
+                    <h3>Departamentos &nbsp; <i class="fa fa-caret-down" aria-hidden="true"></i></h3>
+                    <ul id="menu-slide">
+                        <li><a href="">link1</a></li>
+                        <li><a href="">link1</a></li>
+                        <li><a href="">link1</a></li>
+                        <li><a href="">link1</a></li>
                     </ul>
                 </menu>
+                <div class="inline-flex" style="float: left;" >
+                    <input type="search" name="buscar" id="buscar" placeholder="Buscar por ?">
+                    <input type="submit" value="Buscar">
+                </div>                
+
+                <div id="contato" class="flex">
+                    <li><a href=""><i class="fa fa-envelope-o" aria-hidden="true">&nbsp;fazentech@contato.com</i></a></li>
+                    <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;(33) 99xxx-xxxx</a></li>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row flex-center">
+            <div class="container bg-white flex-between p-1 row-wrap">
+                <article>
+                    <h2>Produto 1</h2>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, saepe vero. Eum ad cumque facilis, quas commodi voluptates tempore debitis. Quas nihil quibusdam corrupti iusto ipsam dicta numquam doloribus sed.</p>
+                    </div>
+                    <div>
+                        <h3>R$35,00</h3>
+                    </div>
+                    <div class="flex-center">
+                        <button>Comprar</button>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>Produto 2</h2>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, saepe vero. Eum ad cumque facilis, quas commodi voluptates tempore debitis. Quas nihil quibusdam corrupti iusto ipsam dicta numquam doloribus sed.</p>
+                    </div>
+                    <div>
+                        <h3>R$35,00</h3>
+                    </div>
+                    <div class="flex-center">
+                        <button>Comprar</button>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>Produto 3</h2>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, saepe vero. Eum ad cumque facilis, quas commodi voluptates tempore debitis. Quas nihil quibusdam corrupti iusto ipsam dicta numquam doloribus sed.</p>
+                    </div>
+                    <div>
+                        <h3>R$35,00</h3>
+                    </div>
+                    <div class="flex-center">
+                        <button>Comprar</button>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>Produto 1</h2>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, saepe vero. Eum ad cumque facilis, quas commodi voluptates tempore debitis. Quas nihil quibusdam corrupti iusto ipsam dicta numquam doloribus sed.</p>
+                    </div>
+                    <div>
+                        <h3>R$35,00</h3>
+                    </div>
+                    <div class="flex-center">
+                        <button>Comprar</button>
+                    </div>
+                </article>
+
+                <article>
+                    <h2>Produto 2</h2>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, saepe vero. Eum ad cumque facilis, quas commodi voluptates tempore debitis. Quas nihil quibusdam corrupti iusto ipsam dicta numquam doloribus sed.</p>
+                    </div>
+                    <div>
+                        <h3>R$35,00</h3>
+                    </div>
+                    <div class="flex-center">
+                        <button>Comprar</button>
+                    </div>
+                </article>
+
+                <div class="propaganda p-1">
+
+                </div>
+
+                <article>
+                    <h2>Produto 3</h2>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, saepe vero. Eum ad cumque facilis, quas commodi voluptates tempore debitis. Quas nihil quibusdam corrupti iusto ipsam dicta numquam doloribus sed.</p>
+                    </div>
+                    <div>
+                        <h3>R$35,00</h3>
+                    </div>
+                    <div class="flex-center">
+                        <button>Comprar</button>
+                    </div>
+                </article>
+
             </div>
         </div>
     </main>
 
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".departamentos").click(function(){
+                $("#menu-slide").slideToggle("slow").css("display","block");
+            });
+        });
+    </script>
 </body>
 </html>
