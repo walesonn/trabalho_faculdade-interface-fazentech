@@ -1,5 +1,6 @@
 
 @import "_variaveis";
+
 /* Base */
 *{
     margin: 0px;
@@ -261,17 +262,28 @@ span > a:hover {
     background-color: $white;
 }
 
+#layout-admin{
+    width: 100%;
+}
+
 .col-sm-6{
-    width: 45%;
+    width: 100%;
 }
 .col-sm-6 > .container{
-    margin: 2%;
+    width: 100%;
+    margin-bottom: 2%;
 }
 
 #bg-img{
     background-image: url("../img/fazentech.jpg");
     background-size: cover;
     background-attachment: fixed;
+}
+
+@media only screen and (max-width:1060px) { 
+    #layout-admin{
+        flex-flow: row wrap;
+    }
 }
 
 @media (max-width:700px){
@@ -502,6 +514,55 @@ menu{
     }
 }
 
+@media only screen and (max-width: 1288px){
+    .propaganda{
+        width: 75%;
+    }
+
+    #buscar{
+        width: 100%;
+        position: relative;
+    }
+
+    #search{
+        align-self: center;
+    }
+
+    .departamentos{
+        position: relative;
+        align-self: center;
+        ul{
+            position: absolute;
+            width: 80%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1270px){
+    .propaganda{
+        width: 280px;
+    }
+}
+
+@media (max-width:955px){
+    article{
+        width: 48%;
+    }
+
+    .propaganda{
+        width: 48%;
+    }
+}
+
+// footer
+
+footer{
+    padding: 20px;
+    p{
+        color: $grey;
+    }
+}
+
 @media (max-width:680px){
     article{
         width: 100%;
@@ -512,6 +573,11 @@ menu{
         background-color: $white;
         h3{
             color: black;
+        }
+
+        ul{
+            position: relative;
+            width: 100%;
         }
     }
     main > div:nth-child(3){
@@ -537,14 +603,29 @@ menu{
     }
     #contato{
         width: 100%;
+        display: inline-flex;
+        justify-content: space-around;
+        align-items: center;
+
+        li:last-of-type{
+            font-size: small;
+        }
+    }
+
+    .fa-caret-down{
+        float: right;
+    }
+
+    .propaganda{
+        margin: 10px auto;
+        width: 98%;
+    }
+
+    footer{
+        display: flex;
+        p{
+            font-size: small;
+        }
     }
 }
 
-footer{
-
-    padding: 20px;
-
-    p{
-        color: $grey;
-    }
-}

@@ -208,17 +208,24 @@ span > a:hover {
 .bg-white {
   background-color: #fff; }
 
+#layout-admin {
+  width: 100%; }
+
 .col-sm-6 {
-  width: 45%; }
+  width: 100%; }
 
 .col-sm-6 > .container {
-  margin: 2%; }
+  width: 100%;
+  margin-bottom: 2%; }
 
 #bg-img {
   background-image: url("../img/fazentech.jpg");
   background-size: cover;
   background-attachment: fixed; }
 
+@media only screen and (max-width: 1060px) {
+  #layout-admin {
+    flex-flow: row wrap; } }
 @media (max-width: 700px) {
   main > .row {
     display: block;
@@ -379,6 +386,37 @@ menu {
   border-radius: 8px;
   color: #fff; }
 
+@media only screen and (max-width: 1288px) {
+  .propaganda {
+    width: 75%; }
+
+  #buscar {
+    width: 100%;
+    position: relative; }
+
+  #search {
+    align-self: center; }
+
+  .departamentos {
+    position: relative;
+    align-self: center; }
+    .departamentos ul {
+      position: absolute;
+      width: 80%; } }
+@media only screen and (max-width: 1270px) {
+  .propaganda {
+    width: 280px; } }
+@media (max-width: 955px) {
+  article {
+    width: 48%; }
+
+  .propaganda {
+    width: 48%; } }
+footer {
+  padding: 20px; }
+  footer p {
+    color: #dbdada; }
+
 @media (max-width: 680px) {
   article {
     width: 100%; }
@@ -389,6 +427,9 @@ menu {
     background-color: #fff; }
     .departamentos h3 {
       color: black; }
+    .departamentos ul {
+      position: relative;
+      width: 100%; }
 
   main > div:nth-child(3) {
     width: 100%;
@@ -409,10 +450,23 @@ menu {
     justify-content: center; }
 
   #contato {
-    width: 100%; } }
-footer {
-  padding: 20px; }
-  footer p {
-    color: #dbdada; }
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center; }
+    #contato li:last-of-type {
+      font-size: small; }
+
+  .fa-caret-down {
+    float: right; }
+
+  .propaganda {
+    margin: 10px auto;
+    width: 98%; }
+
+  footer {
+    display: flex; }
+    footer p {
+      font-size: small; } }
 
 /*# sourceMappingURL=style.css.map */
